@@ -31,47 +31,41 @@ Testing the webserver
 Developed by:Preethi.A.A
 Reference number:212222110035
 
-from http.server import HTTPServer,BaseHTTPRequestHandler
-
-content="""
+from http.server import HTTPServer, BaseHTTPRequestHandler
+content = """
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Saveetha Engineering college</title>
-    </head>
-    <body text="000000" bgcolor="F5BDFFS">  
-            <h1 align="center"> Saveetha Engineering college</h1>
-            <h2 align="right"> Autonomous</h2>
-                <ul type="square">
-                    <li> CSE(cyber security)</li>
-                    <li> CSE(Iot)</li>
-                    <li> AIDS</li>
-                    <li> AIML</li>
-                    <a href="http://www.saveetha.ac.in">visit our website</a>
-                    
-                </ul>
-
-            </body>
-    </head>
-</html> 
+<head>
+<title>My webserver</title>
+</head>
+<body>
+<h1><u>Top five web application development frameworks.</u><h1>
+<ul>
+<li>Django</li>
+<li>Angular or Angular JS</li>
+<li>Laravel.</li>
+<li>Meteor. </li>
+<li>ASP.NET. </li>
+</body>
+</html>
 """
-
-class MyServer(BaseHTTPRequestHandler):
+class myhandler(BaseHTTPRequestHandler):
     def do_GET(self):
-       print("Get request received...")
-       self.send_response(200)
-       self.send_header('content-type','text/html; charset=utf-8')
-       self.end_headers()
-       self.wfile.write(content.encode())
-
-print("This is my webserver")
-server_address=('',8000)
-httpd = HTTPServer(server_address, MyServer)
+        print("request received")
+        self.send_response(200)
+        self.send_header('content-type', 'text/html; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(content.encode())
+server_address = ('',80)
+httpd = HTTPServer(server_address,myhandler)
+print("my webserver is running...")
 httpd.serve_forever()
 ```
 ## OUTPUT:
 
-![Screenshot 2023-03-28 222757](https://user-images.githubusercontent.com/120115840/228318369-9aa0a697-276e-46fb-8ccd-9fb5a1444626.png)
+![Screenshot 2023-03-29 084842](https://user-images.githubusercontent.com/120115840/228418295-e74b7982-476b-4745-a537-f733ccf615eb.png)
+
+![Screenshot 2023-03-29 084857](https://user-images.githubusercontent.com/120115840/228418333-e000041e-454b-4b42-8b01-2e856acc57dc.png)
 
 ## RESULT:
 The program is executed succesfully.
